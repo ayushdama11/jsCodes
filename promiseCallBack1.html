@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is h1 </h1>
+    <script>
+
+        h1= document.querySelector("h1");
+        function changeColor(color, delay ){
+            return new Promise((resolve, reject)=>{
+                setTimeout(function(){
+                    h1.style.color = color;
+                    resolve("color changed!");
+                }, delay);
+            });
+        }
+
+        changeColor("red", 1000)
+            .then(()=>{
+                console.log("red color was changed!");
+                return changeColor("orange", 1000);
+            })
+            .then(()=>{
+                console.log("orange color was changed!");
+                return changeColor("green", 1000); 
+            })
+            .then(()=>{
+                console.log("green color was changed!");
+                return changeColor("blue", 1000);
+            })
+            .then(()=>{
+                console.log("blue color was changed!");
+            })
+        
+
+    </script>
+</body>
+</html>

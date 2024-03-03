@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+//the promise object represents the eventual completion or failure of asynchronouse operatio and its resulting value 
+
+//promise has resolve and reject or success and failure
+//used for asynchronous function : result dependent on many things then async function
+
+// ****** Solving the database problem using promise
+
+// function savetoDb(data, success, failure){
+//     let internetSpeed= Math.floor(Math.random() * 10) + 1;
+//     console.log(internetSpeed);
+//     if(internetSpeed > 4){
+//         success();
+//     }
+//     else{
+//         failure();
+//     }
+// }
+
+// savetoDb("ayush", ()=>{
+//     console.log("your data was saved");
+//     savetoDb("hello world", ()=>{
+//         console.log("success2: data 2 saved");
+//     }, () => {
+//         console.log("failure2 : weak connection");
+//     });
+// }, ()=>{
+//     console.log("weak connection, data was not saved !!");
+// });
+ 
+// *** Promise sirf browser me run karega 
+function savetoDb(data){
+    //creating promise
+    return new Promise((resolve, reject) => {
+        let internetSpeed= Math.floor(Math.random() * 10) + 1;
+        console.log(internetSpeed);     
+        if(internetSpeed > 4){
+            resolve("data was saved");
+        }
+        else{
+            reject("failure : weak connection");
+        }
+    })
+}
+// savetoDb("apna college"); : write in browser
+
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!-- async function returns a promise -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- if function executes normally, then state of promise is "fulfilled" and if there is any return then it is executed -->
+    <!-- if function has error then it will be in "rejected" state -->
+    <script>
+        async function greet(){
+            throw "weak connection";
+            return "hello";
+        }
+
+        greet().then((result)=>{
+            console.log("promise was resolved");
+            console.log("result was: ", result);
+        })
+        .catch((err)=>{
+            console.log("promise was rejected with err: ", err);
+        })
+
+        // arrow function to async function
+        let demo= async () => {
+            return 5;
+        };
+
+        
+    </script>
+</body>
+</html>

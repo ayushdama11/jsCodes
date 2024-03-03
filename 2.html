@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: aliceblue">
+    <h1>Chai aur Code</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <!-- when we will click on start button the set Interval method will beginand when we will click on stop button then it will stop the setinterval function -->
+</body>
+
+<script>
+    let intervalId;  // Declare intervalId outside of the event handlers
+
+    const startBtn = document.querySelector('#start');
+    const stopBtn = document.querySelector('#stop');
+
+    startBtn.addEventListener('click', function(){
+        intervalId = setInterval(function() {
+            console.log("Ayush", Date.now());
+        }, 1000); //har 1 second ke bad print karta jaega because setInterval hai 
+        console.log(intervalId);
+    });
+
+    stopBtn.addEventListener('click', function(){
+        clearInterval(intervalId);
+    });
+
+</script>
+</html>

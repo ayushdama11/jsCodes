@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let url= "https://catfact.ninja/fact";
+        //we will be using try and catch because sometimes maybe our url will be wrong 
+        async function getfacts(){
+            try{
+                let res= await fetch(url);
+                let data= await res.json();
+                console.log(data.fact);
+
+                let res2= await fetch(url);
+                let data2= await res2.json();
+                console.log(data2.fact);
+                
+            }catch(e){
+                console.error("Error: "+ e);
+            }
+
+            console.log("byee");
+            
+        }
+
+        getfacts();
+    </script>
+</body>
+</html>

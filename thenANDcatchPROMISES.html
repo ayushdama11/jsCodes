@@ -1,0 +1,47 @@
+<!-- promise has 2 methods:- **then and catch** :- promise fulfil hone ke bad koi kam karana ho to then me likho agar koi kaam reject ho jae tab karvana ho to fir catch me likho -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+// *** Promise sirf browser me run karega 
+function savetoDb(data){
+    //creating promise
+    return new Promise((resolve, reject) => {
+        let internetSpeed= Math.floor(Math.random() * 10) + 1;
+        console.log(internetSpeed);     
+        if(internetSpeed > 4){
+            resolve("data was saved");
+        }
+        else{
+            reject("failure : weak connection");
+        }
+    })
+}
+// savetoDb("apna college"); : write in browser
+
+// let request= savetoDb("apna college");  //req= promise object
+// request.then(()=>{
+//     console.log("promise was resolved");
+//     console.log(promise); 
+// })
+// .catch(()=>{
+//     console.log("promise was rejected");
+// })
+//abhi agar success hua to jo then me likha hai wahi print hoga aur agar fail hua to jo catch me likha hai wo print hoga , pura promise nai dikhaega
+
+savetoDb("apna college").then(()=>{
+        console.log("promise was resolved");
+    })
+    .catch(()=>{
+        console.log("promise was rejected");
+    });
+
+</script>
+</html>

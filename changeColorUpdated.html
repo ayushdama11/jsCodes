@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is h1 </h1>
+    <script>
+
+        h1= document.querySelector("h1");
+
+        function changeColor(color, delay ){
+            return new Promise((resolve, reject)=>{
+                setTimeout(function(){
+                    h1.style.color = color;
+                    console.log(`color changed to ${color}`);
+                    resolve("color changed!");
+                }, delay);
+            });
+        } 
+
+
+        // abhi agar mera ek bhi promise reject hua to mera jo code hai line number 35 sey wo to promise pe depend bhi nai karta fir bhi runnai hoga
+        async function demo(){
+            await changeColor("red", 1000);
+            await changeColor("orange", 1000);
+            await changeColor("green", 1000);
+            await changeColor("blue", 1000);
+        }
+
+    </script>
+</body>
+</html>

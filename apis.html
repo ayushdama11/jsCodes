@@ -1,0 +1,37 @@
+<!-- catfact.ninja/api/activity -->
+<!-- boredapi.com/api/activity -->
+<!-- dog.ceo/api/breeds/image/random -->
+
+
+<!--*** JSON :- js object notation :- api returns data in the json format ; earlier it was done using xml -->
+<!-- json has key value pairs : same like js objects -->
+<!-- json response format will be always in string format -->
+
+<!-- ***Accesing data from Json : .parse(), .stringify() -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let jsonRes= '{"fact":"The smallest wildcat today is the Black-footed cat. The females are less than 20 inches (50 cm) long and can weigh as little as 2.5 lbs (1.2 kg).","length":145}'
+
+        // json.parse() will parse a string data into a js object
+        let validRes= JSON.parse(jsonRes);
+        console.log(validRes);
+
+        // json.stringify() will parse js object data into json data
+        let student= {
+                name: "ayush",
+                marks: 98
+        };
+
+        console.log(JSON.stringify(student));
+
+    </script>
+</body>
+</html>

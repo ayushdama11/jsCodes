@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let url="https://catfact.ninja/fact";
+        // fetch(url);         //output will be visible in network -> response 
+        // fetch(url); //it returns a promise
+
+        fetch(url).then((response)=>{
+            console.log(response); 
+            //with help of this data becomes readable
+            // console.log(response.json());    //returns a promise in which data is present
+            
+            // response.json().then((data)=>{
+            //     console.log(data);
+            // }); 
+            
+            return response.json();
+        })
+        .then((data)=>{
+            console.log(data.fact); //prints only the fact of the data
+            return fetch(url);  //we now want data 2 from same url
+        })
+        .then((res)=>{
+            return res.json(); //returns another promise with data 2
+        })
+        .then((data2) => {
+            console.log(data2.fact); //prints only the fact of the data 2
+        })
+        .catch((err) => {
+            console.log("Error: ", err);
+        })
+
+    </script>
+</body>
+</html>
