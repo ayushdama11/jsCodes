@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom | Chai aur Code</title>
+</head>
+<body style="background-color: #212121; color: #fff">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+
+<script>
+    const parent= document.querySelector('.parent')
+    console.log(parent);
+    console.log(parent.children); //is class ke andar jitne bhi childrens hai jaise monday, tue, wed...
+    console.log(parent.children[1].innerHTML); //tuesday
+
+    for(let i=0; i<parent.children.length; i++){//parent.children.length ka matlab jitne childrens hai sabke liey work karega
+        console.log(parent.children[i].innerHTML);
+    }
+
+    parent.children[1].style.color="orange";
+    console.log(parent.firstElementChild); //whole div of monday is selected
+    console.log(parent.lastElementChild); //whole div of thursday is selected
+    
+    const dayOne= document.querySelector('.day'); //selected monday(because queryselector selects first ele)
+    console.log(dayOne) //Monday
+    console.log(dayOne.parentElement);  //a whole parentelement will be selected
+    console.log(dayOne.nextElementSibling); //whole tuesday div
+
+    console.log("NODES: ", parent.childNodes); //total 9 nodes 
+    // 9 nodes because when we press enter key then it is also one node, before monday we have done enter so it is also node, etc..
+    //text in the node is the enter key we press
+
+</script>
+</html>
