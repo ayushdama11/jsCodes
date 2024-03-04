@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: #414141; color: #fff">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="1.jpg" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="2.jpg" alt=""></li>
+            <li><img width="200px" id="river" src="3.jpg" alt=""></li>
+            <li><img width="200px" id="owl" src="4.jpg" alt=""></li>
+            <li><img width="200px" id="prayer" src="5.jpg" alt=""></li>
+            <li><a  style="color: #fff" href="https://google.com" id="google">Google</a></li>
+
+        </ul>
+    </div>
+</body>
+
+<script>
+    //bad habit:- use EventListener() it is best aproach
+    // document.getElementById('owl').onclick= function(){
+    //     alert("Owl clicked");
+    // }
+
+    //addEventListener
+    // document.getElementById('owl').addEventListener('click' , function(){
+    //     alert("owl clicked again");
+    // })
+
+    //type, timeStamp, defaultPrevented
+    //target, toElement, srcElement, currentTarget,
+    //clientX, clientY, screenX, screenY
+    //altkey, ctrlkey, shiftkey, keyCode
+
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false) 
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("Owl clicked");
+    //     e.stopPropagation();
+    // }, false) 
+
+//**** when we will click on the owl, at first it will print clicked on owl and then it will print clicked inside the ul :jab ham false likhege tab :- bubbling event
+
+//**** aur agar ham true likhe tohh, pehle aagea clicke on owl aur fir aega owl clicked :-capturing event 
+
+//**** default false hi rehta haii
+
+//**** jab ham stop propogation likhege to event bubble hoke upar nai jaega aur print kar dega owl clicked in case of false
+
+    //ab ham google wali website pe click karege to naya page nai khulega
+    // document.getElementById('google').addEventListener('click', function(){
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     console.log("google clicked");
+    // }, false)
+
+
+
+
+    //**** jaise hi mai koi image pe click karu to wo image gayab ho jani chahie :- project
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.parentNode);   //li
+        console.log(e.target.tagName); //image pe click karoge to IMG aaega , agar li pe clickm karoge to hamey LI aaega 
+
+        //problem ye hai ki agar me li ko click kar ra hu to uska parentNode to ul hai toh fir jaise hi me usko click karuga to fir mere sare images matlab li chale jaegee isliey ham uske liey ek condition likh rae haiiii
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id);
+            let removeIt= e.target.parentNode;
+            removeIt.remove()
+        }
+    }, false)
+
+
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input placeholder="type something">
+    <button>click me!</button>
+</body>
+<script>
+    let btn= document.querySelector("button");
+    let inp= document.querySelector("input");
+     
+    // btn.addEventListener("click", function(e){
+    //     console.log(e);
+    //     console.log("button clicked");
+    // });
+
+    // btn.addEventListener("dblclick", function(e){
+    //     console.log(e);
+    //     console.log("button double clicked");
+    // });
+
+    // inp.addEventListener("keydown", function(){
+    //     console.log("key was pressed");
+    // })
+
+    //jese hi key release karege to aaega key was released
+    // inp.addEventListener("keyup", function(){
+    //     console.log("key was released");
+    // })
+
+    inp.addEventListener("keydown", function(e){
+        console.log("key= ", event.key);
+        console.log("code= ", event.code);
+        console.log("key was pressed"); 
+    })
+</script>
+</html>
