@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>To-do App</h1>
+    <input placeholder="enter your task">
+    <button>Add Task</button>
+    <ul>
+        <li>Eat <button class="delete">delete</button></li>
+        <li>Sleep <button class="delete">delete</button></li>
+    </ul>
+
+
+    <script>
+        let btn= document.querySelector('button');
+        let ul= document.querySelector('ul');
+        let inp= document.querySelector('input');
+
+        btn.addEventListener('click', function(){
+            let item= document.createElement("li");
+            item.innerText= inp.value;
+
+            let delBtn= document.createElement("button");
+            delBtn.innerText= "delete";
+            delBtn.classList.add("delete"); //to add class
+            item.appendChild(delBtn);   //append button child in the item when created 
+            
+            ul.appendChild(item);
+            inp.value="";    //to clear input value
+        });
+
+        // ***** Event Delegation :- event bubbling is used 
+        //below code unhi li's pe work kargea jo hamne body me likha hai , agar koi script tag se ham naya element banate hai aur wahi same element body me bhi ho to agar ham event listener lagaye to fir wo sirf unhi elements pe kam karega jo already body me hai naaki unpe jinko hamne create kiya haiii
+        // let delBtns= document.querySelectorAll(".delete");
+        // for(delBtn of delBtns){
+        //     delBtn.addEventListener('click',function(){
+        //         let par= this.parentNode;//get parent element from delete button
+        //         par.remove();     //remove li from ul
+        //     });
+        // }
+
+
+        //in event delegation jis child pe ham event listener add karna chahte hai instead ham uske parent pe use kar dete haii
+        // jese yaha li pe karna hai to = li ka parent ul hai to ha uspe likhege event listener
+
+        ul.addEventListener("click", function(event){
+            if(event.target.nodeName == "BUTTON"){  //jab ham button pe click kare tab hi ye hona chahie 
+                let listItem= event.target.parentElement;   //jis delete button pe ham click kare uske purey li ko delete karna hai
+                listItem.remove();
+                console.log("deleted");
+            }
+        })
+
+    </script>
+</body>
+</html>
