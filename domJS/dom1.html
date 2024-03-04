@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning </title>
+    <style>
+        .bg-black{
+            background-color: #212121;
+            color: #fff; 
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <!--**DOM :- Document Object Model**-->
+
+    <div>
+        <h1 id="title" class="heading">DOM Learning on chai aur code</h1>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <input type="password" name="" id="">
+    </div>
+
+    <ul>
+        <li class="list-item">one</li>
+        <li class="list-item">two</li>
+        <li class="list-item">three</li>
+        <li class="list-item">four</li>
+    </ul>
+
+    <!-- to get element by id we use document.getElementById -->
+    <script>
+        document.getElementById('id_name').getAttribute;
+        document.getElementById('id_name').setAttribute;
+        document.getElementById('id_name').id;
+        document.getElementById('id_name').className;
+
+// innerHTML displays the content of id mentioned in getElementById a whole code is displayed
+        document.getElementById('id_name').innerHTML
+
+// .innertext displays the content which is visible whereas .textContent also displays the hidden comment 
+
+// document.querySelector('h1') : displays the first h1 tag
+// document.querySelector('input[type"password"]')
+
+/*
+const myul= document.querySelector('ul')
+undefined
+myul.querySelector('li')
+const turnGreen= myul.querySelector('li')
+undefined
+turnGreen.style.background= "green"
+'green'
+turnGreen.style.background= "green"
+'green'
+turnGreen.style.padding= "20px"
+'20px'
+turnGreen.innerText= "five"
+'five'
+*/
+
+/*
+tempLilist
+NodeList(3) [li, li, li]
+tempLilist[0].style.color= "green"
+'green'
+const myH1= document.querySelectorAll('h1')
+undefined
+myH1
+NodeList [h1#title.heading]
+myH1[0].style.color= "green"
+'green'
+*/
+
+/*
+templilist
+NodeList(3) [li, li, li]
+templilist.forEach(function (){})
+undefined
+templilist.forEach(function (l){
+    l.style.backgroundColor= 'green'
+})
+*/
+
+/*
+tempClassList
+HTMLCollection(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+Array.from(tempClassList)
+(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+const myConvertedArray= Array.from(tempClassList)
+undefined
+myConvertedArray
+(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+myConvertedArray.forEach(function(){})
+undefined
+myConvertedArray.forEach(function(li){
+    li.style.color= 'orange'
+})
+*/
+
+
+    </script>
+</body>
+  </html>
